@@ -1,0 +1,99 @@
+.sec-catalogue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.tools {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(black, rgba(0, 0, 0, 0));
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+}
+
+.tools .logo {
+  margin: 30px 0px 0px 30px;
+  width: 25%;
+}
+
+.search-head {
+  position: relative;
+  margin: 30px 30px 0px 0px;
+}
+
+.search-head input {
+  background-color: rgba(0, 0, 0, 0.438);
+  border: 2px solid yellow;
+  height: 40px;
+  border-radius: 40px;
+  padding-left: 20px;
+}
+
+.search-head input::placeholder {
+  color: yellow;
+  font-size: 0.8rem;
+}
+
+.search-head button {
+  position: absolute;
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 40px;
+  background-color: yellow;
+}
+
+.search-head button i {
+  font-size: 18px;
+}
+
+.cover-bg {
+  width: 100%;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.cover-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+}
+
+.cont-name-album {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(rgba(0, 0, 0, 0), black);
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont-name-album h3 {
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 10px;
+}
+
+.cont-name-album p {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+

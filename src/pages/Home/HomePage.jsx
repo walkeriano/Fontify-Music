@@ -1,11 +1,15 @@
 
-import './HomePage.css';
+import "./HomePage.css";
+import Header from "../../components/Header/Header"
+import Catalog from "../../components/Catalog/Catalog"
 
-export default function HomePage(){
-    return(
-        <>
-            <div>hello world</div>
-            <i className="fa-solid fa-magnifying-glass icon-search"></i>
-        </>
-    )
+
+
+export default function HomePage() {
+  return (
+    <div>
+        <Header/>
+        <Catalog />
+    </div>
+  );
 }
