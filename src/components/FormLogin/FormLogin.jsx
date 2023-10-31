@@ -1,9 +1,9 @@
-import "./Input.css";
+import "./FormLogin.css";
 
-function Input(){
+function FormLogin(){
     return(
         <section>
-            <button>Registrate gratis</button>
+            <button>Hello world</button>
             <button>Log in</button>
             <button>¿Has olvidado tu contraseña</button>
             <button>Log in administrador</button>
@@ -12,4 +12,4 @@ function Input(){
     )
 }
 
-export default Input;
+export default FormLogin;
