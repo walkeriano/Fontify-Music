@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import catalog from
+import Catalog from './components/Catalog'
 
 function App() {
   return (
