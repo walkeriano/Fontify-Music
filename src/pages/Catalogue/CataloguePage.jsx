@@ -1,6 +1,5 @@
 import "./CataloguePage.css";
 import logo from "../../img/logo-frontify.svg";
-import search from "../../img/search.svg";
 
 
 
@@ -14,7 +13,7 @@ export default function CataloguePage() {
         <div className="">
           <input type="search" />
           <button>
-            <img className="" src={search} alt="icon-search" />
+            <i className="fa-sharp fa-light fa-magnifying-glass i-btn"></i>
           </button>
         </div>
       </headder>
