@@ -21,7 +21,8 @@ export default function Header() {
           <p>Album Más Top - Michael Jackson</p>
         </div>
       </section>
-      <div className="div">
+      <div >
+
       </div>
     </section>
   );
