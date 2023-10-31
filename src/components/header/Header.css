@@ -1,0 +1,16 @@
+.mainHeader{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 100px;
+  align-items: center;
+}
+
+.mainHeader .logo-frontify{
+  width: 300px;
+}
+
+.mainHeader .right{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
