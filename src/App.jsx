@@ -1,13 +1,12 @@
-import { BrowserRouter } from 'react-router-dom';
-import { Router } from './Router';
+import { useState } from 'react'
+import './App.css'
+import catalog from
 
 function App() {
   return (
-    <BrowserRouter>
-      <Router/>
-    </BrowserRouter>
+    <Catalog />
   )
-  
+
 }
 
 export default App
