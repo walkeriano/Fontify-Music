@@ -1,6 +1,6 @@
 import './Albums.css';
 
-import cover from './../assets/covers/rosalia-el_mal_querer.jpeg';
+import cover from './../../assets/covers/rosalia-el_mal_querer.jpeg';
 
 import AlbumCard from './AlbumCard';
 

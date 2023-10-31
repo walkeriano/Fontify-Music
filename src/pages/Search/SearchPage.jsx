@@ -1,6 +1,6 @@
 import "./SearchPage.css";
 
-import Albums from "../../components/Albums";
+import Albums from "../../components/albums/Albums";
 import Header from "../../components/header/Header";
 
 
