@@ -1,10 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import catalog from
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './Router';
 
 function App() {
   return (
-    <Catalog />
+    <BrowserRouter>
+      <Router/>
+    </BrowserRouter>
   )
   
 }
