@@ -1,7 +1,7 @@
 
 import "./HomePage.css";
 import Header from "../../components/Header/Header"
-import Catalog from "../../components/Catalog"
+import Catalog from "../../components/Catalog/Catalog"
 
 
 
