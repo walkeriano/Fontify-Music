@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 
 export default function Catalog({fetchData}) {
     const [data, setData] = useState([]);
-    const url = "http://localhost:3000/items";
 
     useEffect(() => {
        setData(fetchData);

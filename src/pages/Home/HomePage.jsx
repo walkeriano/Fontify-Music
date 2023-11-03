@@ -88,8 +88,8 @@ export default function HomePage() {
             console.log(responseAlbum, ' ALBUM FETCH');
             setSearchResults(responseAlbum.albums.items);
         }
-
     }
+    
     return (
         <>
             <Header
