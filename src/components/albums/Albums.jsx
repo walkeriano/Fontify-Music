@@ -1,29 +1,38 @@
 import './Albums.css';
 
-import cover from './../../assets/covers/rosalia-el_mal_querer.jpeg';
-
+import ConstructorAPI from '../../../ConstructorAPI';
 import AlbumCard from './AlbumCard';
 
-export default function Albums(){
+import { useEffect, useState } from 'react';
 
-  const album1 = {
-    src: cover,
-    title: 'EL MAL QUERER',
-    artist: 'Rosalía',
-    genere: 'Pop',
-    year: 2018
-  }
+export default function Albums({inputData, fetchData}){
+
+  const [data, setData] = useState([]);
+  const [results, setResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // const api = new ConstructorAPI();
+
+  // useEffect(() => {
+
+  // }, []);
+
+
+  useEffect(() => {
+
+    // console.log('Renderizando los datos del fetch desde ALBUMS');
+    // console.log(fetchData, 'DESDE ALBUMS COMPONENT');
+    setData(fetchData);
+
+  }, [fetchData]);
 
   return (
     <section className="albums">
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
-      <AlbumCard src={album1.src} title={album1.title} artist={album1.artist} genere={album1.genere} year={album1.year}/>
+      {
+        data.map(album => {
+          return <AlbumCard key={album.id} data-id={album.id} src={album.images[0].url} title={album.name} artist={album.artists[0].name} genere="POP" year={album.release_date} />
+        })
+      }
     </section>
   )
 

@@ -1,12 +1,17 @@
 
+import { useState } from 'react';
 import './SearchInput.css';
 
-export default function SearchInput(){
+export default function SearchInput({handleInputSearch, handleSearch}){
+
 
   return (
-    <div className="input-search">
-      <input type="text" placeholder="Introduce tu búsqueda" />
-      <i className="fa-solid fa-magnifying-glass icon-search"></i>
+    <div className="searchField">
+      <input type="search" placeholder="Buscar" onChange={handleInputSearch} onKeyDown={handleSearch}/>
+      <button onClick={handleSearch}>
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
   )
+
 }

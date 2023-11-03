@@ -1,16 +1,17 @@
 import "./Header.css";
 import logo from "../../img/logo-frontify.svg";
 
-export default function Header() {
+import SearchInput from "./SearchInput";
+import { useState } from "react";
+
+export default function Header({handleInputSearch, handleSearch}) {
+
+
+  
   return (
-    <header className="tools">
+    <header className="mainHeader">
       <img className="logo" src={logo} alt="logo" />
-      <div className="search-head">
-        <input type="search" placeholder="Buscar" />
-        <button>
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
+      <SearchInput handleInputSearch={handleInputSearch} handleSearch={handleSearch} />
     </header>
   );
 }
