@@ -1,7 +1,7 @@
 import "./SearchPage.css";
 
 import Albums from "../../components/albums/Albums";
-import Header from "../../components/header/Header";
+import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { Buffer } from "buffer";
 
