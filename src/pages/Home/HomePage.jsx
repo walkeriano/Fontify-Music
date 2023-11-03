@@ -40,13 +40,11 @@ export default function HomePage() {
             } catch (error) {
                 console.log(error);
             } finally {
-                // console.log(localStorage.getItem('access_token'), 'from getItem of localstorage');
-                // console.log(accessToken, ' from useSTATE');
+                homeLoad();
             }
         }
 
         getToken();
-        homeLoad();
 
     }, []);
 
@@ -55,7 +53,7 @@ export default function HomePage() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         }
 
