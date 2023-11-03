@@ -5,10 +5,10 @@ import Hero from "./../../components/Hero"
 
 export default function HomePage() {
   return (
-    <>
+    <section className="cont-general">
         <Header/>
         <Hero />
         <Catalog />
-    </>
+    </section>
   );
 }
