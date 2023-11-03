@@ -10,6 +10,9 @@ export default function HomePage() {
     const [searchValue, setSearchValue] = useState(null);
     const [accessToken, setAccessToken] = useState(null);
     const [homeData, setHomeData] = useState([]);
+
+    const [isDoingSearch, setIsDoingSearch] = useState(false);
+
     const localStorage = window.localStorage;
 
     useEffect(() => {
@@ -40,13 +43,11 @@ export default function HomePage() {
             } catch (error) {
                 console.log(error);
             } finally {
-                // console.log(localStorage.getItem('access_token'), 'from getItem of localstorage');
-                // console.log(accessToken, ' from useSTATE');
+                homeLoad();
             }
         }
 
         getToken();
-        homeLoad();
 
     }, []);
 
@@ -55,7 +56,7 @@ export default function HomePage() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         }
 
@@ -69,6 +70,7 @@ export default function HomePage() {
     }
     // SEARCH FUNCTION
     async function search() {
+        setIsDoingSearch(true);
         console.log('Search for ' + searchValue);
 
         // Get request using search to get Album ID
@@ -89,30 +91,50 @@ export default function HomePage() {
             setSearchResults(responseAlbum.albums.items);
         }
     }
-    
+
+
+    // checkInputValue
+    function checkInputValue(input){
+      console.log(input);
+      setSearchValue(input.target.value.toLowerCase());
+      if(input.target.value.trim() == ''){
+        setIsDoingSearch(false);
+      }
+    }
+
+    // checkSearchAction
+    function checkSearchAction(e){
+      if (e.key == 'Enter') {
+        search();
+      } else if(e.type == 'click') {
+        search();
+      }
+    }
+
+
     return (
         <>
             <Header
-                handleInputSearch={input => setSearchValue(input.target.value.toLowerCase())}
-                handleSearch={e => {
-                    if (e.key == 'Enter') {
-                        // console.log('Has presionado ENTER');
-                        search();
-                    }
-
-                    if (e.type == 'click') {
-                        // console.log('Has hecho click en el BUTTON');
-                        search();
-                    }
-
-                    console.log(e);
-                }}
+                handleInputSearch={checkInputValue}
+                handleSearch={checkSearchAction}
             />
-            <main className="cont-general">
-                <Hero/>
-                <Catalog fetchData={homeData}/>
-                {/* <Albums inputData={searchValue} fetchData={homeData} /> */}
-            </main>
+            {
+              !isDoingSearch ?
+                (<main className="cont-general">
+                    <Hero/>
+                    <Catalog fetchData={homeData}/>
+                    {/* <Albums inputData={searchValue} fetchData={homeData} /> */}
+                </main>
+                )
+              :
+                (
+                  <main className="content">
+                    <h1>Results</h1>
+                    <Catalog fetchData={searchResults}/>
+                  </main>
+                )
+
+            }
         </>
     );
 }

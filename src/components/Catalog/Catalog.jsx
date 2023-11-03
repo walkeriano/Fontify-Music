@@ -2,26 +2,16 @@ import "./Catalog.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Catalog() {
+export default function Catalog({fetchData}) {
+
   const [data, setData] = useState([]);
 
-  const url = "http://localhost:3000/items";
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Error al obtener los datos");
-        }
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+
+    setData(fetchData);
+
+  }, [fetchData]);
 
   return (
     <section className="cont-songs">
