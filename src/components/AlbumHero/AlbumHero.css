@@ -1,0 +1,14 @@
+.albumPicture{
+    display: flex;
+    position:static;    
+    height: 100%;
+    width:100%;
+    z-index: 0;
+    opacity: 50%;
+}
+
+.albumHero h1{
+color: white;
+display: flex;
+position: absolute;
+}
