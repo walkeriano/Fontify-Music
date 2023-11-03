@@ -1,31 +1,33 @@
-#root *{
+#root * {
   box-sizing: content-box;
 }
 
-body{
+body {
   background-color: black;
+  font-family:  Inter !important;
 }
 
-#root h1{
+#root h1 {
   font-size: 46px;
 }
 
-#root h2{
+#root h2 {
   font-size: 36px;
 }
 
-#root h3{
+#root h3 {
   font-size: 28px;
 }
 
-#root h4{
+#root h4 {
   font-size: 20px;
 }
 
-#root h5{
+#root h5 {
   font-size: 14px;
 }
 
-#root h6{
+#root h6 {
   font-size: 10px;
 }
+

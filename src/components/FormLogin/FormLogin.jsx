@@ -1,15 +1,27 @@
 import "./FormLogin.css";
+import { useForm } from "react-hook-form";
 
-function FormLogin(){
-    return(
-        <section>
-            <button>Hello world</button>
-            <button>Log in</button>
-            <button>¿Has olvidado tu contraseña</button>
-            <button>Log in administrador</button>
-            <button>Entrar sin registrarse</button>
-        </section>
-    )
+
+function FormLogin() {
+  return (
+    <form>
+      <label>
+        <input className="main-btn" type="button" value="Registrate gratis"></input>
+      </label>
+      <label>
+        <input className="second-btn" type="text" placeholder="Nombres y apellidos..."></input>
+      </label>
+      <label>
+        <input className="second-btn" type="email" placeholder="Tu mejor correo..."></input>
+      </label>
+      <label>
+        <input className="second-btn" type="password" placeholder="Contraseña"></input>
+      </label>
+      <label>
+        <input className="third-btn" type="submit" value="Entrar sin registrarse"></input>
+      </label>
+    </form>
+  )
 }
 
-export default FormLogin;
+export default FormLogin;

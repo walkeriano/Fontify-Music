@@ -1,10 +1,10 @@
 
 import './AlbumCard.css';
 
-export default function AlbumCard({src, title, artist, genere, year}){
+export default function AlbumCard({src, title, artist, genere, year, dataId}){
 
   return (
-    <article className="album">
+    <article data-id={dataId} className="album">
       <img src={src} />
       <h4>{title}</h4>
       <h3>{artist}</h3>
