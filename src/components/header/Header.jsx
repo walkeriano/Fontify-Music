@@ -2,12 +2,10 @@ import "./Header.css";
 import logo from "../../img/logo-frontify.svg";
 
 import SearchInput from "./SearchInput";
-import { useState } from "react";
 
 export default function Header({handleInputSearch, handleSearch}) {
 
 
-  
   return (
     <header className="mainHeader">
       <img className="logo" src={logo} alt="logo" />
