@@ -38,7 +38,7 @@ export default function Catalog() {
               <p>{item.name}</p>
               <p>{item.artists[0].name}</p>
             </div>
-            <i class="fa-solid fa-circle-play i-music"></i>
+            <i className="fa-solid fa-circle-play i-music"></i>
             <ul className="info-hover">
               <li className="info-item">
                 <p>{item.type}</p>

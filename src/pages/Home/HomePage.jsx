@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import Header from "../../components/header/Header"
+import Header from "../../components/Header/Header"
 import Catalog from "../../components/Catalog/Catalog"
 import Hero from "./../../components/Hero"
 

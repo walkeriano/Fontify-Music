@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 
 function FormLogin() {
   return (
-    <form>
+    <form id="welcomeForm">
       <label>
         <input className="main-btn" type="button" value="Registrate gratis"></input>
       </label>
