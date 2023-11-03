@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  body{
+    background-color: #232323;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  label{
+    display: block
+  }
+  
+  .main-btn{
+    background-color: #ffe200;
+    color: #232323;
+    width:500px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    margin: 5px 0;
+  }
+  
+  .second-btn{
+    width:500px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 5px 0;
+    background-color: transparent;
+    border: white;
+  }
+  
+  .third-btn{
+    width:250px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    margin:5px 0;
+  }
