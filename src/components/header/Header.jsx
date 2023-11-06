@@ -2,11 +2,9 @@ import "./Header.css";
 import logo from "../../img/logo-frontify.svg";
 import SearchInput from "./SearchInput";
 import { useState } from "react";
-import ConstructorAPI from "../../../ConstructorAPI";
 
-export default function Header({ sendData, sendIsDoingSearch }) {
+export default function Header({ sendData, sendIsDoingSearch, token }) {
   const [inputValue, setInputValue] = useState(null);
-
   function handleSearch(e) {
     if (e.key == "Enter") {
       search();
@@ -20,18 +18,35 @@ export default function Header({ sendData, sendIsDoingSearch }) {
       sendIsDoingSearch(false);
     }
   }
-
   async function search() {
     sendIsDoingSearch(true);
-    const searchPath =
-      "search?q=" + inputValue + "&type=album";
-    const api = new ConstructorAPI(searchPath);
-    api
-      .fetchData()
-      .then((data) => {
-        sendData(data.albums.items);
-      })
-      .catch((error) => console.log(error));
+    console.log("Search for " + inputValue);
+
+    try {
+      // setIsLoading(true);
+      let options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      };
+
+      let requestAlbum = await fetch(
+        "https://api.spotify.com/v1/search?q=" + inputValue + "&type=album",
+        options
+      );
+      let responseAlbum = await requestAlbum.json();
+
+      if (requestAlbum.ok) {
+        console.log(responseAlbum, " ALBUM FETCH");
+        // setSearchResults(responseAlbum.albums.items);
+        sendData(responseAlbum.albums.items);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
   }
 
   return (
