@@ -3,28 +3,31 @@ import Header from "../../components/Header/Header";
 import Catalog from "../../components/Catalog/Catalog";
 import Hero from "./../../components/Hero";
 import { useState, useEffect } from "react";
-import Albums from "../../components/albums/Albums";
 import Spinner from "../../components/Spinner";
-
 import ConstructorAPI from "../../../ConstructorAPI";
 
 export default function HomePage() {
   const [searchResults, setSearchResults] = useState([]);
-  const [accessToken, setAccessToken] = useState(null);
   const [homeData, setHomeData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const [isDoingSearch, setIsDoingSearch] = useState(false);
 
-  const localStorage = window.localStorage;
+  const homePath = "browse/new-releases?country=US&limit=30";
 
-  const homePath = 'browse/new-releases?country=US&limit=30';
-  const searchPath = 'search?q=' + {inputValue} + '&type=album';
+  useEffect(() => {
+    const api = new ConstructorAPI(homePath);
+    api
+      .fetchData()
+      .then((data) => {
+        setHomeData(data.albums.items);
+      })
+      .catch()
+      .finally(setIsLoading(false));
+  }, []);
 
   function handleHeaderStates(state) {
     setIsDoingSearch(state);
   }
-
 
   function handleHeaderData(data) {
     setSearchResults(data);
@@ -35,18 +38,16 @@ export default function HomePage() {
       <Header
         sendData={handleHeaderData}
         sendIsDoingSearch={handleHeaderStates}
-        token={localStorage.getItem("access_token")}
       />
       {!isDoingSearch && !isLoading ? (
         <main className="cont-general">
           <Hero />
-          <Catalog fetchUrl={homePath}/>
-          {/* <Albums inputData={searchValue} fetchData={homeData} /> */}
+          <Catalog fetchData={homeData} />
         </main>
       ) : isDoingSearch && !isLoading ? (
         <main className="content">
           <h1>Results</h1>
-          <Catalog fetchUrl={searchPath} />
+          <Catalog fetchData={searchResults} />
         </main>
       ) : (
         <Spinner />
