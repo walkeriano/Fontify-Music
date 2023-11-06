@@ -1,12 +1,12 @@
 import './Hero.css';
-import cover from "./../img/cover.jpg";
+import cover from "./../../assets/img/cover.jpg";
 
 export default function Hero(){
 
   return (
-    <section className="cover-bg">
+    <section className="hero">
       <img src={cover} alt="img-cover" />
-      <div className="cont-name-album">
+      <div className="hero-album-name">
         <h3>Dangerous</h3>
         <p>Album Más Top - Michael Jackson</p>
       </div>

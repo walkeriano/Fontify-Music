@@ -1,5 +1,5 @@
 import "./AlbumHero.css";
-import coverAlbum from "../../img/taylorSwift.jpeg"
+import coverAlbum from "../../assets/img/taylorSwift.jpeg"
 
 export default function AlbumHero() {
     let albumName = "1989 (Taylor's Version)";

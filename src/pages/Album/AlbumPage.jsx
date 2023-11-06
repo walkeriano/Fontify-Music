@@ -1,6 +1,6 @@
-import Header from "../../components/Header/Header"
-import "../Album/AlbumPage.css"
-import AlbumHero from "../../components/AlbumHero/AlbumHero"
+import Header from "../../components/Header/Header";
+import "../Album/AlbumPage.css";
+import AlbumHero from "../../components/AlbumHero/AlbumHero";
 
 function AlbumPage() {
     return (

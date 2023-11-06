@@ -1,10 +1,10 @@
 import "./HomePage.css";
 import Header from "../../components/Header/Header";
 import Catalog from "../../components/Catalog/Catalog";
-import Hero from "./../../components/Hero";
-import { useState, useEffect } from "react";
-import Spinner from "../../components/Spinner";
+import Hero from "../../components/Hero/Hero";
+import Spinner from './../../components/Spinner/Spinner';
 import ConstructorAPI from "../../../ConstructorAPI";
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
   const [searchResults, setSearchResults] = useState([]);
@@ -45,8 +45,7 @@ export default function HomePage() {
           <Catalog fetchData={homeData} />
         </main>
       ) : isDoingSearch && !isLoading ? (
-        <main className="content">
-          <h1>Results</h1>
+        <main className="cont-general">
           <Catalog fetchData={searchResults} />
         </main>
       ) : (
