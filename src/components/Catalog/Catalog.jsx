@@ -1,14 +1,25 @@
 import "./Catalog.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ConstructorAPI from "../../../ConstructorAPI";
 
-export default function Catalog({fetchData}) {
+export default function Catalog({fetchUrl}) {
 
   const [data, setData] = useState([]);
 
-  
   useEffect(() => {
+    const api = new ConstructorAPI(fetchUrl);
+    api.fetchData()
+    .then((data) => {
+        setHomeData(data.albums.items)
+    })
+    .catch()
+    .finally(setIsLoading(false))
+  }, []);
 
+  useEffect(() => {
+    
+    'browse/new-releases?country=US&limit=30'
     setData(fetchData);
 
   }, [fetchData]);

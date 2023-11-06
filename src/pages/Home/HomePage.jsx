@@ -18,40 +18,13 @@ export default function HomePage() {
 
   const localStorage = window.localStorage;
 
+  const homePath = 'browse/new-releases?country=US&limit=30';
+  const searchPath = 'search?q=' + {inputValue} + '&type=album';
+
   function handleHeaderStates(state) {
     setIsDoingSearch(state);
   }
 
-    useEffect(() => {
-        const api = new ConstructorAPI();
-        api.fetchData('https://api.spotify.com/v1/browse/new-releases?country=US&limit=30').then((data) => {setHomeData(data.albums.items)}).catch().finally(setIsLoading(false))
-    }, []);
-
-  async function homeLoad() {
-    try {
-      let options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("access_token"),
-        },
-      };
-
-      let requestAlbum = await fetch(
-        "https://api.spotify.com/v1/browse/new-releases?country=US&limit=30",
-        options
-      );
-      let responseAlbum = await requestAlbum.json();
-      if (requestAlbum.ok) {
-        console.log(responseAlbum, " ALBUM FETCH");
-        setHomeData(responseAlbum.albums.items);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
 
   function handleHeaderData(data) {
     setSearchResults(data);
@@ -67,13 +40,13 @@ export default function HomePage() {
       {!isDoingSearch && !isLoading ? (
         <main className="cont-general">
           <Hero />
-          <Catalog fetchData={homeData} />
+          <Catalog fetchUrl={homePath}/>
           {/* <Albums inputData={searchValue} fetchData={homeData} /> */}
         </main>
       ) : isDoingSearch && !isLoading ? (
         <main className="content">
           <h1>Results</h1>
-          <Catalog fetchData={searchResults} />
+          <Catalog fetchUrl={searchPath} />
         </main>
       ) : (
         <Spinner />

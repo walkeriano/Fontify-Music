@@ -1,7 +1,9 @@
 
 class ConstructorAPI{
-  constructor(baseUrl){
-    this.baseUrl = baseUrl || 'http://localhost:3000/items';
+  constructor(path){
+    this.path = path;
+    this.baseUrl = 'https://api.spotify.com/v1';
+    this.localStorage = window.localStorage;
   }
 
   async getToken() {
@@ -24,7 +26,7 @@ class ConstructorAPI{
         const response = await request.json();
 
         if (request.ok) {
-          localStorage.setItem('access_token', response.access_token);
+          this.localStorage.setItem('access_token', response.access_token);
         }
     } catch (error) {
         console.log(error);
@@ -41,14 +43,11 @@ class ConstructorAPI{
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            'Authorization': 'Bearer ' + this.localStorage.getItem('access_token')
         }
     }
 
-      const request = await fetch(`${this.baseUrl}`, options);
-
-      // Descomentar el fetch comentado para poder hacer un fetch por cada path instanciado
-      // const request = await fetch(`${this.baseUrl}/${path}`);
+      const request = await fetch(`${this.baseUrl}/${this.path}`, options);
 
       if(!request.ok){
         console.log('Error desde la request');
@@ -57,6 +56,7 @@ class ConstructorAPI{
 
       const response = await request.json();
       return response;
+
     } catch(error){
       throw new Error('Error al obtener dados de la API de Spotify: ' + error);
     }
