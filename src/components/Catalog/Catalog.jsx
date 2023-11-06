@@ -6,7 +6,7 @@ export default function Catalog({fetchData}) {
 
   const [data, setData] = useState([]);
 
-
+  
   useEffect(() => {
 
     setData(fetchData);
