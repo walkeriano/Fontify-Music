@@ -4,12 +4,14 @@ import Catalog from "../../components/Catalog/Catalog"
 import Hero from "./../../components/Hero"
 import { useState, useEffect } from "react";
 import Albums from "../../components/albums/Albums"
+import Spinner from "../../components/Spinner";
 
 export default function HomePage() {
     const [searchResults, setSearchResults] = useState([]);
     const [searchValue, setSearchValue] = useState(null);
     const [accessToken, setAccessToken] = useState(null);
     const [homeData, setHomeData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const [isDoingSearch, setIsDoingSearch] = useState(false);
 
@@ -52,21 +54,28 @@ export default function HomePage() {
     }, []);
 
     async function homeLoad () {
-        let options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+
+        try{
+            let options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+                }
             }
+    
+            let requestAlbum = await fetch('https://api.spotify.com/v1/browse/new-releases?country=US&limit=30' , options);
+            let responseAlbum = await requestAlbum.json();
+            if (requestAlbum.ok) {
+                console.log(responseAlbum, ' ALBUM FETCH');
+                setHomeData(responseAlbum.albums.items);
+            }
+        } catch(error){
+            console.log(error);
+        } finally{
+            setIsLoading(false);
         }
 
-        let requestAlbum = await fetch('https://api.spotify.com/v1/browse/new-releases?country=US&limit=30' , options);
-        let responseAlbum = await requestAlbum.json();
-
-        if (requestAlbum.ok) {
-            console.log(responseAlbum, ' ALBUM FETCH');
-            setHomeData(responseAlbum.albums.items);
-        } 
     }
     // SEARCH FUNCTION
     async function search() {
@@ -75,20 +84,27 @@ export default function HomePage() {
 
         // Get request using search to get Album ID
 
-        let options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
+        try{
+            // setIsLoading(true);
+            let options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + accessToken
+                }
             }
-        }
-
-        let requestAlbum = await fetch('https://api.spotify.com/v1/search?q=' + searchValue + '&type=album', options);
-        let responseAlbum = await requestAlbum.json();
-
-        if (requestAlbum.ok) {
-            console.log(responseAlbum, ' ALBUM FETCH');
-            setSearchResults(responseAlbum.albums.items);
+    
+            let requestAlbum = await fetch('https://api.spotify.com/v1/search?q=' + searchValue + '&type=album', options);
+            let responseAlbum = await requestAlbum.json();
+    
+            if (requestAlbum.ok) {
+                console.log(responseAlbum, ' ALBUM FETCH');
+                setSearchResults(responseAlbum.albums.items);
+            }
+        } catch(error){
+            console.log(error);
+        } finally{
+            //setIsDoingSearch(false);
         }
 
     }
@@ -120,21 +136,24 @@ export default function HomePage() {
                 handleSearch={checkSearchAction}
             />
             {
-              !isDoingSearch ?
+            !isDoingSearch && !isLoading ?
                 (<main className="cont-general">
                     <Hero/>
                     <Catalog fetchData={homeData}/>
                     {/* <Albums inputData={searchValue} fetchData={homeData} /> */}
                 </main>
                 )
-              :
+            : isDoingSearch && !isLoading ?
                 (
                   <main className="content">
                     <h1>Results</h1>
                     <Catalog fetchData={searchResults}/>
                   </main>
                 )
-
+            :
+                (
+                    <Spinner />
+                )
             }
         </>
     );
