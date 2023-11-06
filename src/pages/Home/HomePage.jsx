@@ -7,10 +7,12 @@ import ConstructorAPI from "../../../ConstructorAPI";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
+  
   const [searchResults, setSearchResults] = useState([]);
+  const [isDoingSearch, setIsDoingSearch] = useState(false);
+
   const [homeData, setHomeData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isDoingSearch, setIsDoingSearch] = useState(false);
 
   const homePath = "browse/new-releases?country=US&limit=30";
 
