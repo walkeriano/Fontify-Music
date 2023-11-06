@@ -17,6 +17,10 @@ export default function HomePage() {
 
     const localStorage = window.localStorage;
 
+    function handleHeaderStates(state) {
+        setIsDoingSearch(state);
+    }
+
     useEffect(() => {
 
         async function getToken() {
@@ -78,36 +82,7 @@ export default function HomePage() {
 
     }
     // SEARCH FUNCTION
-    async function search() {
-        setIsDoingSearch(true);
-        console.log('Search for ' + searchValue);
-
-        // Get request using search to get Album ID
-
-        try{
-            // setIsLoading(true);
-            let options = {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + accessToken
-                }
-            }
     
-            let requestAlbum = await fetch('https://api.spotify.com/v1/search?q=' + searchValue + '&type=album', options);
-            let responseAlbum = await requestAlbum.json();
-    
-            if (requestAlbum.ok) {
-                console.log(responseAlbum, ' ALBUM FETCH');
-                setSearchResults(responseAlbum.albums.items);
-            }
-        } catch(error){
-            console.log(error);
-        } finally{
-            //setIsDoingSearch(false);
-        }
-    }
-
 
     // checkInputValue
     function checkInputValue(input){
@@ -119,20 +94,16 @@ export default function HomePage() {
     }
 
     // checkSearchAction
-    function checkSearchAction(e){
-      if (e.key == 'Enter') {
-        search();
-      } else if(e.type == 'click') {
-        search();
-      }
+    function handleHeaderData(data) {
+        setSearchResults(data);
     }
-
+    
 
     return (
         <>
-            <Header
-                handleInputSearch={checkInputValue}
-                handleSearch={checkSearchAction}
+            <Header sendData={handleHeaderData}
+            sendIsDoingSearch={handleHeaderStates}
+            token={localStorage.getItem("access_token")}
             />
             {
             !isDoingSearch && !isLoading ?

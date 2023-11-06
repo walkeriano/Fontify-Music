@@ -1,47 +1,57 @@
-#welcomeForm{
-  font-size: 14px;
-  font-weight: bold;
+#welcomeForm {
   height: 100vh;
 }
 
-#welcomeForm input{
-  color: yellow;
+
+#welcomeForm input {
+  font-size: 14px;
+  font-weight: bold;
 }
 
-  form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  label{
-    display: block
-  }
-  
-  .main-btn{
-    background-color: #ffe200;
-    color: #232323;
-    width:500px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    margin: 5px 0;
-  }
-  
-  .second-btn{
-    width:500px;
-    height: 40px;
-    border-radius: 20px;
-    margin: 5px 0;
-    background-color: transparent;
-    border: white;
-  }
-  
-  .third-btn{
-    width:250px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    margin:5px 0;
-  }
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+label {
+  display: block;
+}
+
+.main-btn {
+  background-color: #ffe200;
+  color: #232323;
+  width: 500px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  margin: 5px 0;
+}
+
+.input-box {
+  width: 500px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 5px 0;
+  background-color: #232323;
+  border: #232323;
+}
+
+.submit-btn {
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  margin: 5px 0;
+  background-color: #232323;
+  color: #ffffff;
+}
+
+input[type=text]{
+  padding: 0 0 0 10px;
+  color: white;
+}
+html{
+  color: white;
+}
