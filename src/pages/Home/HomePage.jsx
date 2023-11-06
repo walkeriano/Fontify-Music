@@ -106,7 +106,6 @@ export default function HomePage() {
         } finally{
             //setIsDoingSearch(false);
         }
-
     }
 
 
