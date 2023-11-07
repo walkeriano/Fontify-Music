@@ -6,11 +6,11 @@ import { useForm } from "react-hook-form";
 function FormLogin() {
   return (
     <div id="container">
-      <form>
-        <img src={logo} alt="" />
+      <form id="welcome-form">
+        <img id="logo-img" src={logo} alt="" />
         <br></br>
   
-        <button className="register-button">Entrar sin registrarse</button>
+        <button id="register-button">Entrar sin registrarse</button>
   
         <label for="email"></label>
         <input type="email" className="email-input" id="email" placeholder="Correo electronico"/>
@@ -18,7 +18,7 @@ function FormLogin() {
         <label for="password"></label>
         <input type="password" className="password-input" id="password" placeholder="Contraseña" required/>
   
-      <button className="login-button">Login</button>
+      <button id="login-button">Login</button>
     </form>
   </div>
   );

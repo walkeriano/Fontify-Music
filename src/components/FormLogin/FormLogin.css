@@ -11,7 +11,7 @@
   background-size: cover;
 }
 
-form {
+#welcome-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,15 +24,13 @@ form {
   height: 800px;
 }
 
-img {
+#logo-img {
   max-width: 60%;
+  padding-bottom: 40px;
 }
 
-#giffy{
-  position: absolute;
-  z-index: -1;
-}
-button {
+
+#register-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,8 +45,8 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: rgb(24, 23, 23);
+#register-button:hover {
+  background-color: rgb(48, 46, 46);
 }
 
 input[type="text"] {
@@ -63,7 +61,7 @@ input[type="text"] {
 }
 
 input[type="email"] {
-  width: 70%;
+  width: 68%;
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px;
@@ -74,7 +72,7 @@ input[type="email"] {
 }
 
 input[type="password"] {
-  width: 70%;
+  width: 68%;
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px;
@@ -84,15 +82,23 @@ input[type="password"] {
   color: rgb(230, 230, 230);
 }
 
-button.login-button {
+#login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 40px; 
+  margin: 20px 0;
   background-color: #ffe200;
   color: #232323;
-  font-size: 14px;
-  font-weight: 600;
-  height: 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button.login-button:hover{
+
+#login-button:hover{
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.308);
 }
 
