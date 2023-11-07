@@ -1,27 +1,27 @@
 import "./FormLogin.css";
+import logo from "../../img/logo-frontify.svg";
+import videogif from "../../img/videogif.gif";
 import { useForm } from "react-hook-form";
-
 
 function FormLogin() {
   return (
-    <form id="welcomeForm">
-      <label>
-        <input className="main-btn" type="button" value="Registrate gratis"></input>
-      </label>
-      <label> <html>Nombres y apellidos</html>
-        <input className="input-box" type="text" placeholder=""></input>
-      </label>
-      <label><html>Tu mejor correo</html>
-        <input className="input-box" type="email"></input>
-      </label>
-      <label><html>Contraseña"</html>
-        <input className="input-box" type="password"></input>
-      </label>
-      <label>
-        <input className="submit-btn" type="submit" value="Entrar sin registrarse"></input>
-      </label>
+    <div id="container">
+      <form id="welcome-form">
+        <img id="logo-img" src={logo} alt="" />
+        <br></br>
+  
+        <button id="register-button">Entrar sin registrarse</button>
+  
+        <label htmlFor="email"></label>
+        <input type="email" className="email-input" id="email" placeholder="Correo electronico"/>
+        
+        <label htmlFor="password"></label>
+        <input type="password" className="password-input" id="password" placeholder="Contraseña" required/>
+  
+      <button id="login-button">Login</button>
     </form>
-  )
+  </div>
+  );
 }
 
 export default FormLogin;
