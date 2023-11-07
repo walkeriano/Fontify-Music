@@ -1,6 +1,6 @@
 import "./Catalog.css";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import CatalogCard from './CatalogCard';
 
 export default function Catalog({ fetchData }) {
   const [data, setData] = useState([]);
@@ -10,36 +10,19 @@ export default function Catalog({ fetchData }) {
   }, [fetchData]);
 
   return (
-    <section className="cont-songs">
-      <p className="title-cat">Álbums Disponibles</p>
-      <div className="songs-slider">
+    <section className="catalog">
+      <div className="catalog-container">
         {data.map((item) => (
-          <Link
-            to={`/detalle-album/${item.id}`}
-            className="song-card"
+          <CatalogCard
             key={item.id}
-          >
-            <img src={item.images[0].url} alt="img-song" />
-            <div className="song-info">
-              <p>{item.name}</p>
-              <p>{item.artists[0].name}</p>
-            </div>
-            <i className="fa-solid fa-circle-play i-music"></i>
-            <ul className="info-hover">
-              <li className="info-item">
-                <p>{item.type}</p>
-                <i className="fa-solid fa-compact-disc"></i>
-              </li>
-              <li className="info-item">
-                <p>{item.total_tracks} Songs</p>
-                <i className="fa-solid fa-music "></i>
-              </li>
-              <li className="info-item">
-                <p>{item.release_date}</p>
-                <i className="fa-regular fa-calendar-days"></i>
-              </li>
-            </ul>
-          </Link>
+            id={item.id}
+            src={item.images[0].url}
+            name={item.name}
+            artist={item.artists[0].name}
+            albumType={item.type}
+            numTracks={item.total_tracks}
+            releaseDate={item.release_date}
+            />
         ))}
       </div>
     </section>
