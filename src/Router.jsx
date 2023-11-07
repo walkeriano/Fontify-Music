@@ -12,7 +12,6 @@ export function Router() {
             <Route path="/" element={<HomePage/>} />
             <Route path="/login-page" element={<LoginPage/>} />
             <Route path="/dashboard" element={<DashboardPage/>} />
-            <Route path="/detalle-album/:id" element={<AlbumPage/>} />
             <Route path="/album/:id" element={<AlbumPage/>} />
         </Routes>
     );
