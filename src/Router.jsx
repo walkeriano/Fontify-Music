@@ -11,13 +11,9 @@ export function Router() {
         <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/login-page" element={<LoginPage/>} />
-<<<<<<< HEAD
-            <Route path="/search" element={<SearchPage/>} />
             <Route path="/dashboard" element={<DashboardPage/>} />
             <Route path="/detalle-album/:id" element={<AlbumPage/>} />
-=======
             <Route path="/album/:id" element={<AlbumPage/>} />
->>>>>>> 94000d2d3d2977b6b2e4cc8c35e9a4ab9634e654
         </Routes>
     );
 }
