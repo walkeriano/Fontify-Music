@@ -20,8 +20,7 @@ export default function Header({ sendData, sendIsDoingSearch }) {
   }
   async function search() {
     sendIsDoingSearch(true);
-    const searchPath =
-      "search?q=" + inputValue + "&type=album";
+    const searchPath = "search?q=" + inputValue + "&type=album";
     const api = new ConstructorAPI(searchPath);
     api
       .fetchData()
@@ -32,7 +31,9 @@ export default function Header({ sendData, sendIsDoingSearch }) {
   }
   return (
     <header className="tools">
-      <img className="logo" src={logo} alt="logo" />
+      <a href="/">
+        <img className="logo" src={logo} alt="logo" />
+      </a>
       <SearchInput
         handleInputSearch={handleInputValue}
         handleSearch={handleSearch}
@@ -40,4 +41,3 @@ export default function Header({ sendData, sendIsDoingSearch }) {
     </header>
   );
 }
-
