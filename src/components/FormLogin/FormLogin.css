@@ -1,11 +1,14 @@
-#welcomeForm {
+#container {
   height: 100vh;
-}
-
-
-#welcomeForm input {
-  font-size: 14px;
-  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60));
+  background: url(../../img/rec.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 form {
@@ -13,45 +16,102 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 600px;
+  background-color: #232323;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(150, 150, 150, 0.308);
+  text-align: center;
+  height: 800px;
 }
 
-label {
-  display: block;
+img {
+  max-width: 60%;
 }
 
-.main-btn {
+#giffy{
+  position: absolute;
+  z-index: -1;
+}
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 40px; 
+  margin: 20px 0;
+  background-color: #181717;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(24, 23, 23);
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid rgb(110, 110, 110);
+  outline: none;
+  color: rgb(230, 230, 230);
+}
+
+input[type="email"] {
+  width: 70%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid rgb(110, 110, 110);
+  outline: none;
+  color: rgb(230, 230, 230);
+}
+
+input[type="password"] {
+  width: 70%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid rgb(110, 110, 110);
+  outline: none;
+  color: rgb(230, 230, 230);
+}
+
+button.login-button {
   background-color: #ffe200;
   color: #232323;
-  width: 500px;
-  height: 40px;
-  border-radius: 20px;
-  border: none;
-  margin: 5px 0;
+  font-size: 14px;
+  font-weight: 600;
+  height: 50px;
 }
 
-.input-box {
-  width: 500px;
-  height: 40px;
-  border-radius: 20px;
-  margin: 5px 0;
-  background-color: #232323;
-  border: #232323;
+button.login-button:hover{
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.308);
 }
 
-.submit-btn {
-  width: 250px;
-  height: 40px;
-  border-radius: 20px;
-  border: none;
-  margin: 5px 0;
-  background-color: #232323;
-  color: #ffffff;
-}
 
-input[type=text]{
-  padding: 0 0 0 10px;
-  color: white;
-}
-html{
-  color: white;
+@media (max-width: 768px) {
+  form {
+    width: 80%;
+    max-width: 400px;
+    height: 700px; 
+    box-shadow: 0 0 10px rgba(150, 150, 150, 0.568);
+    text-align: center;
+    background-color: #232323;
+    border: none;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  img {
+    max-width: 60%;
+  }
 }
