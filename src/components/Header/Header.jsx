@@ -6,7 +6,6 @@ import ConstructorAPI from "../../../ConstructorAPI";
 
 import { useState } from "react";
 
-
 export default function Header({ sendData, sendIsDoingSearch }) {
 
   const [inputValue, setInputValue] = useState(null);
@@ -39,15 +38,9 @@ export default function Header({ sendData, sendIsDoingSearch }) {
 
 
   return (
-<<<<<<< HEAD
     <header className="mainHeader">
       <img className="logo" src={logo} alt="logo" />
-=======
-    <header className="tools">
-      <a href="/">
-        <img className="logo" src={logo} alt="logo" />
-      </a>
->>>>>>> 7b2d305254840c090b1cc876c83f3ca66db0129d
+
       <SearchInput
         handleInputSearch={handleInputValue}
         handleSearch={handleSearch}

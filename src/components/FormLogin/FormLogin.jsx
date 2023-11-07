@@ -1,7 +1,6 @@
 import "./FormLogin.css";
-import logo from "../../img/logo-frontify.svg";
-import videogif from "../../img/videogif.gif";
-import { useForm } from "react-hook-form";
+import logo from "./../../assets/img/logo-frontify.svg";
+
 
 function FormLogin() {
   return (
