@@ -1,27 +1,46 @@
-import "./AlbumHero.css";
-import coverAlbum from "../../assets/img/taylorSwift.jpeg";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ConstructorAPI from "../../../ConstructorAPI";
+import "../AlbumHero/AlbumHero.css";
 
-export default function AlbumHero({ fetchData }) {
-  const [data, setData] = useState([]);
+function AlbumHero() {
+  const { id } = useParams();
+  const [itemData, setItemData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setData(fetchData);
-  }, [fetchData]);
+    const fetchItem = async () => {
+      const albumPath = "albums/" + id;
+      console.log(id);
+      const api = new ConstructorAPI(albumPath);
+
+      try {
+        const data = await api.fetchData();
+        setItemData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching item data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchItem();
+  }, [id]);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <section className="albumHero">
-      {data.map((item) => (
-        <div key={item.id}>
-          <img
-            className="albumPicture"
-            src={item.images[0].url}
-            alt="album cover"
-          />
-          <p>{item.name}</p>
-          <p>{item.artists[0].name}</p>
-        </div>
-      ))}
-    </section>
+    <div className="hero">
+      <img src={itemData.images[0].url} className= "imageHero"/>
+      <h1>{itemData.name}</h1>
+      <p>{itemData.artists[0].name}</p>
+      <h2>Album Tracks</h2>
+      <p>{itemData.tracks.items[0].name}</p>
+    </div>
   );
 }
+
+export default AlbumHero;
