@@ -80,6 +80,7 @@ function FormLogin({adminUsers}) {
     <div id="container">
       <form id="welcome-form" onSubmit={handleLogin}>
         <img id="logo-img" src={logo} alt="" />
+       
         <br></br>
 
         <button id="register-button" onClick={() => navigate('home')} >Entrar sin registrarse</button>

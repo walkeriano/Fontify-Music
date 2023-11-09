@@ -1,7 +1,7 @@
 import "react";
 import { Routes, Route } from "react-router-dom";
-import HomePage  from "./pages/Home/HomePage";
-import LoginPage  from "./pages/Login/LoginPage";
+import HomePage from "./pages/Home/HomePage";
+import LoginPage from "./pages/Login/LoginPage";
 import AlbumPage from "./pages/Album/AlbumPage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
 
@@ -22,6 +22,7 @@ export function Router() {
 
             {/* <Route path="/dashboard" element={() => { !isLogged ? <Navigate to='/' /> : <DashboardPage /> }}
             /> */}
+            <Route path="/artist" element={<ArtistPage/>}/>
         </Routes>
     );
 }

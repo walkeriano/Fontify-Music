@@ -35,10 +35,10 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 40px; 
-  margin: 20px 0;
+  height: 50px; 
+  margin: 20px;
   background-color: #181717;
-  color: white;
+  color: rgb(150, 150, 150);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -46,13 +46,14 @@
 }
 
 #register-button:hover {
-  background-color: rgb(48, 46, 46);
+  box-shadow: 0 0 10px rgba(150, 0, 255, 0.2);
 }
 
 input[type="text"] {
   width: 70%;
   padding: 10px;
   margin: 5px 0;
+  height: 50px;
   border-radius: 5px;
   background-color: transparent;
   border: 1px solid rgb(110, 110, 110);
@@ -64,6 +65,7 @@ input[type="email"] {
   width: 68%;
   padding: 10px;
   margin: 5px 0;
+  height: 30px;
   border-radius: 5px;
   background-color: transparent;
   border: 1px solid rgb(110, 110, 110);
@@ -75,6 +77,7 @@ input[type="password"] {
   width: 68%;
   padding: 10px;
   margin: 5px 0;
+  height: 30px;
   border-radius: 5px;
   background-color: transparent;
   border: 1px solid rgb(110, 110, 110);
@@ -82,12 +85,16 @@ input[type="password"] {
   color: rgb(230, 230, 230);
 }
 
+input:hover{
+  border: 1px solid rgb(150, 150, 150);
+}
+
 #login-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
-  height: 40px; 
+  width: 50%;
+  height: 50px; 
   margin: 20px 0;
   background-color: #ffe200;
   color: #232323;
@@ -95,6 +102,8 @@ input[type="password"] {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 
