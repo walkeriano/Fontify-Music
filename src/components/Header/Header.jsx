@@ -3,13 +3,39 @@ import logo from "../../assets/img/logo-frontify.svg";
 
 import SearchInput from "./SearchInput";
 import ConstructorAPI from "../../../ConstructorAPI";
+import LoginBtn from "./LoginBtn";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({ sendData, sendIsDoingSearch }) {
 
   const [inputValue, setInputValue] = useState(null);
+  const [isLogged, setIsLogged] = useState(null);
   
+  const navigate = useNavigate();
+
+  useEffect( () => {
+    validateUser();
+  }, []);
+
+
+  function validateUser(){
+
+    if(JSON.parse(localStorage.getItem('user'))){
+      setIsLogged(true);
+    } else{
+      setIsLogged(false);
+    }
+
+  }
+
+  function handleLogout(){
+    localStorage.removeItem('user');
+    validateUser();
+  }
+
+
   function handleSearch(e) {
     if (e.key == "Enter") {
       search();
@@ -39,12 +65,18 @@ export default function Header({ sendData, sendIsDoingSearch }) {
 
   return (
     <header className="mainHeader">
-      <img className="logo" src={logo} alt="logo" />
+      <img className="logo" src={logo} alt="logo" onClick={() => navigate('/home')}/>
 
       <SearchInput
         handleInputSearch={handleInputValue}
         handleSearch={handleSearch}
       />
+
+      { isLogged
+      ? (<button id="logout" onClick={handleLogout}>Logout</button>)
+      : (<LoginBtn />)
+      }
+
     </header>
   );
 }

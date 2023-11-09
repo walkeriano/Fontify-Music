@@ -1,20 +1,42 @@
 import "./FormLogin.css";
 import logo from "./../../assets/img/logo-frontify.svg";
-import { Link } from "react-router-dom";
-import { useState , useEffect} from "react";
+import { useState , useEffect, createElement} from "react";
+import { useNavigate } from "react-router-dom";
+
+function showAlertMessage(message, parentEl){
+
+  const alert = createElement('p', {className: 'alertError-form'}, message);
+  if(parentEl.querySelector('p.alertError-form')){
+    return;
+  }
+
+  parentEl.appendChild(alert);
+
+}
 
 function FormLogin({adminUsers}) {
   const localStorage = window.localStorage;
-  
+  const navigate = useNavigate();
   const [isLogged, setIsLogged] = useState(false);
 
   useEffect(( ) => {
     validateUser();
+    if(isLogged){
+      navigate('/dashboard');
+    }
   }, []);
+
+  useEffect(() => {
+    if(isLogged){
+      navigate('/dashboard');
+    }
+  }, [isLogged]);
+
 
   function handleLogin(e){
 
     e.preventDefault();
+    console.log(e);
 
     const inputEmail = document.querySelector('#welcome-form #email');
     const inputPassword = document.querySelector('#welcome-form input[type="password"]');
@@ -30,13 +52,13 @@ function FormLogin({adminUsers}) {
 
     if(usuarioAdmin){
       localStorage.setItem('user', JSON.stringify(usuarioAdmin));
-      setIsLogged(true);
+      validateUser();
     } else{
-      setIsLogged(false);
+      validateUser();
+      showAlertMessage('El usuario/constraseña no es correcto.', e.target);
     }
 
 
-    validateUser();
 
   }
 
@@ -44,15 +66,12 @@ function FormLogin({adminUsers}) {
 
     if(JSON.parse(localStorage.getItem('user'))){
       setIsLogged(true);
+      console.log('Usuario ADMIN logueado')
     } else{
       setIsLogged(false);
+      console.log('Usuario NO LOGUEADO');
     }
 
-  }
-
-  function handleLogout(){
-    localStorage.removeItem('user');
-    validateUser();
   }
 
 
@@ -63,9 +82,7 @@ function FormLogin({adminUsers}) {
         <img id="logo-img" src={logo} alt="" />
         <br></br>
 
-        <Link to={`/`} className="link">
-          <button id="register-button">Entrar sin registrarse</button>
-        </Link>
+        <button id="register-button" onClick={() => navigate('home')} >Entrar sin registrarse</button>
   
         <label htmlFor="email"></label>
         <input type="email" className="email-input" id="email" placeholder="Correo electronico"/>
@@ -74,12 +91,6 @@ function FormLogin({adminUsers}) {
         <input type="password" className="password-input" id="password" placeholder="Contraseña" required/>
 
         <button type='submit' id="login-button">Login</button>
-
-        { isLogged == true
-        ? (<><h1>LOGUEADO</h1><button id="logout" onClick={handleLogout}>Logout</button></>)
-        : (<h2>NO ESTÁS LOGUEADO</h2>)
-        }
-
 
     </form>
 

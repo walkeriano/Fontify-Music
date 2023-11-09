@@ -7,12 +7,21 @@ import DashboardPage from "./pages/Dashboard/DashboardPage";
 
 
 export function Router() {
+
     return (
         <Routes>
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/login-page" element={<LoginPage/>} />
-            <Route path="/dashboard" element={<DashboardPage/>} />
+            <Route path="/" element={<LoginPage/>} />
+            <Route path="/home" element={<HomePage/>} />
             <Route path="/album/:id" element={<AlbumPage/>} />
+            <Route path='/dashboard' element={<DashboardPage/>} />
+
+            {/* { isLogged
+            ? <Route path="/dashboard" element={<DashboardPage />} />
+            : navigate('/')
+            } */}
+
+            {/* <Route path="/dashboard" element={() => { !isLogged ? <Navigate to='/' /> : <DashboardPage /> }}
+            /> */}
         </Routes>
     );
 }

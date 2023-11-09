@@ -4,8 +4,8 @@ export default function LoginPage(){
     const localStorage = window.localStorage;
 
     const adminUsers = [
-        {email: "dcueto14.info@gmail.com", password: '1234abcd'},
-        {email: "mat.rib.lima@gmail.com", password: '1234abcd'}
+        {email: import.meta.env.VITE_ADMIN1_USER, password: import.meta.env.VITE_ADMIN1_PASS},
+        {email: import.meta.env.VITE_ADMIN2_USER, password: import.meta.env.VITE_ADMIN2_PASS}
     ]
 
     localStorage.setItem('admin_users', JSON.stringify(adminUsers));
