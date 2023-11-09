@@ -1,15 +1,37 @@
-import './CatalogCard.css';
+import "./CatalogCard.css";
+import { Link } from "react-router-dom";
 
-import { Link } from "react-router-dom"
+export default function Card({
+  id,
+  src,
+  name,
+  artist,
+  albumType,
+  numTracks,
+  releaseDate,
+  adminSearch,
+  adminCatalog,
+  addToHomeData,
+}) {
 
-export default function Card({id, src, name, artist, albumType, numTracks, releaseDate}){
+  const handleAddToHomeData = () => {
+    const newData = {
+      id,
+      src,
+      name,
+      artist,
+      albumType,
+      numTracks,
+      releaseDate,
+    };
+    addToHomeData(newData);
+  };
 
-  return(
-    <Link
-      to={`/album/${id}`}
-      className="album-card"
-    >
-      <img src={src} alt="img-album" />
+  return (
+    <section  className="album-card">
+      <Link to={`/album/${id}`} className="box-img">
+        <img src={src} alt="img-album" />
+      </Link>
       <div className="album-info">
         <p>{name}</p>
         <p>{artist}</p>
@@ -29,6 +51,17 @@ export default function Card({id, src, name, artist, albumType, numTracks, relea
           <i className="fa-regular fa-calendar-days"></i>
         </li>
       </ul>
-      </Link>
-  )
+      {adminSearch && (
+        <section className="admin-btns" >
+          <button onClick={handleAddToHomeData}><i className="fa-solid fa-heart"></i></button>
+          <button><i className="fa-solid fa-trash-can"></i></button>
+        </section>
+      )}
+      {adminCatalog && (
+        <section className="admin-btns" >
+          <button><i className="fa-solid fa-trash-can"></i></button>
+        </section>
+      )}
+    </section>
+  );
 }
