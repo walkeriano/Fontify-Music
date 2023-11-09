@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60));
-  background: url(../../../src/assets/img/rec.jpg);
+  background: url(../../assets/img/rec.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

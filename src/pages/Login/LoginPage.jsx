@@ -4,7 +4,7 @@ export default function LoginPage(){
     const localStorage = window.localStorage;
 
     const adminUsers = [
-        {email: "dcuteo14.info@gmail.com", password: '1234abcd'},
+        {email: "dcueto14.info@gmail.com", password: '1234abcd'},
         {email: "mat.rib.lima@gmail.com", password: '1234abcd'}
     ]
 
@@ -12,7 +12,7 @@ export default function LoginPage(){
 
     return(
         <div>
-            <FormLogin/>
+            <FormLogin adminUsers={adminUsers}/>
         </div>
     )
 }
