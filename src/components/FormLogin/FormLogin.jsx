@@ -1,12 +1,20 @@
 import "./FormLogin.css";
 import logo from "./../../assets/img/logo-frontify.svg";
+import { useState } from "react";
 
+const handleSubmit = (e) => {
+  e.preventDefault()
+}
 
 function FormLogin() {
+  const [email, setEmail] = useState("")
+
   return (
     <div id="container">
-      <form id="welcome-form">
+      <form id="welcome-form" onSubmit={handleSubmit}>
+        
         <img id="logo-img" src={logo} alt="" />
+       
         <br></br>
   
         <button id="register-button">Entrar sin registrarse</button>

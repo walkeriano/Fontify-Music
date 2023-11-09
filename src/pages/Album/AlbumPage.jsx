@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import "../Album/AlbumPage.css";
 import AlbumHero from "../../components/AlbumHero/AlbumHero";
 import Catalog from "../../components/Catalog/Catalog";
+import AlbumSongs from "../../components/AlbumSongs/AlbumSongs";
 
 import { useState } from "react";
 
