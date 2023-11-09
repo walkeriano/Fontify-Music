@@ -7,12 +7,13 @@ import DashboardPage from "./pages/Dashboard/DashboardPage";
 
 
 export function Router() {
+    
     return (
         <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/login-page" element={<LoginPage/>} />
             <Route path="/dashboard" element={<DashboardPage/>} />
-            <Route path="/album/:id" element={<AlbumPage/>} />
+            <Route path="/album:id" element={<AlbumPage/>} />
         </Routes>
     );
 }

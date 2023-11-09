@@ -1,0 +1,92 @@
+.tools-admin {
+  border: 3px solid yellow;
+  background-color: rgb(193, 193, 0);
+  width: 80%;
+  max-width: 600px;
+  height: 180px;
+  border-radius: 30px;
+  margin-top: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+span {
+  width: 80%;
+  max-width: 600px;
+  height: 160px;
+  background-color: rgba(255, 255, 0, 0.228);
+  filter: blur(2.5rem);
+  position: absolute;
+  z-index: -10;
+}
+
+.user-rol {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-rol i {
+  font-size: 6rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+  margin-left: 25px;
+}
+
+.i-tools {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.1rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.i-sesion {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.i-sesion i {
+  font-size: 1.2rem;
+}
+
+.user-info .datos .title {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.user-info .datos .name-user {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}

@@ -1,14 +1,22 @@
-.albumPicture{
-    display: flex;
-    position:static;    
-    height: 100%;
-    width:100%;
-    z-index: 0;
-    opacity: 50%;
+.albumHero {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 500px;
 }
 
-.albumHero h1{
-color: white;
-display: flex;
-position: absolute;
+.albumPicture {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 50%;
+}
+
+.albumHero p {
+  color: white;
+  display: flex;
 }
