@@ -15,11 +15,26 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [adminSearch, setAdminSearch] = useState(true);
   const [adminCatalog, setAdminCatalog] = useState(true);
-  
+
+
+  const navigate = useNavigate();
+  const [isLogged, setIsLogged] = useState(false);
+
+  function validateUser(){
+      if(localStorage.getItem('user')){
+        setIsLogged(true);
+        console.log('Usuario logueado. DESDE VALIDATE USER');
+    } else{
+        setIsLogged(false);
+        console.log('Usuario NO logueado. DESDE VALIDATE USER')
+        navigate('/');
+    }
+  }
 
   const homePath = "browse/new-releases?country=US&limit=30";
 
   useEffect(() => {
+    validateUser();
     const api = new ConstructorAPI(homePath);
     api
       .fetchData()
@@ -70,32 +85,4 @@ export default function DashboardPage() {
       )}
     </section>
   );
-}
-import { useEffect, useState } from "react";
-
-export default function DashboardPage(){
-
-    const navigate = useNavigate();
-    const [isLogged, setIsLogged] = useState(false);
-
-    useEffect(() => {
-        validateUser();
-    }, []);
-
-    function validateUser(){
-        if(localStorage.getItem('user')){
-            setIsLogged(true);
-            console.log('Usuario logueado. DESDE VALIDATE USER');
-        } else{
-            setIsLogged(false);
-            console.log('Usuario NO logueado. DESDE VALIDATE USER')
-            navigate('/');
-        }
-    }
-
-
-
-    return (
-        <h1>helloworld</h1>
-    );
 }
