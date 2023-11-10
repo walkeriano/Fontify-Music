@@ -1,5 +1,6 @@
 #root * {
   box-sizing: content-box;
+  font-family: Inter;
 }
 
 body {
