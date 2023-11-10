@@ -15,11 +15,12 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [adminSearch, setAdminSearch] = useState(true);
   const [adminCatalog, setAdminCatalog] = useState(true);
-  const [isLogged, setIsLogged] = useState(false);
+  
 
   const homePath = "browse/new-releases?country=US&limit=30";
 
   useEffect(() => {
+    validateUser();
     const api = new ConstructorAPI(homePath);
     api
       .fetchData()
@@ -93,3 +94,4 @@ export default function DashboardPage() {
     </section>
   );
 }
+

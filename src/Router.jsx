@@ -15,14 +15,6 @@ export function Router() {
             <Route path="/home" element={<HomePage/>} />
             <Route path="/album/:id" element={<AlbumPage/>} />
             <Route path='/dashboard' element={<DashboardPage/>} />
-
-            {/* { isLogged
-            ? <Route path="/dashboard" element={<DashboardPage />} />
-            : navigate('/')
-            } */}
-
-            {/* <Route path="/dashboard" element={() => { !isLogged ? <Navigate to='/' /> : <DashboardPage /> }}
-            /> */}
             <Route path="/artist" element={<ArtistPage/>}/>
         </Routes>
     );
