@@ -29,11 +29,6 @@ export default function Header({ sendData, sendIsDoingSearch, admin }) {
 
   }
 
-  function handleLogout(){
-    localStorage.removeItem('user');
-    validateUser();
-  }
-
 
   function handleSearch(e) {
     if (e.key == "Enter") {
@@ -75,10 +70,6 @@ export default function Header({ sendData, sendIsDoingSearch, admin }) {
           </Link>
         )}
       </div>
-      { isLogged
-      ? (<button id="logout" onClick={handleLogout}>Logout</button>)
-      : (<LoginBtn />)
-      }
     </header>
   );
 }

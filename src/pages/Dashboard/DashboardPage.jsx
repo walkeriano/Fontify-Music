@@ -15,6 +15,7 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [adminSearch, setAdminSearch] = useState(true);
   const [adminCatalog, setAdminCatalog] = useState(true);
+  const [isLogged, setIsLogged] = useState(null);
   
 
   const homePath = "browse/new-releases?country=US&limit=30";

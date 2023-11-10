@@ -12,8 +12,7 @@
 }
 
 .results-search{
-  height: 150px;
-  border: 1px solid red;
+  height: 180px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
