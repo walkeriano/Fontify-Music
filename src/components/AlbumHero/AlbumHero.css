@@ -1,17 +1,17 @@
 .imageHero {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    opacity: 30%;
-    object-fit: cover;
-    position: absolute;
-    top: 20px;
-  }
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 30%;
+  object-fit: cover;
+  position: absolute;
+  top: 20px;
+}
 
-  p, h1, h2{
+/* p, h1, h2{
   width: 100%;
   height: 100px;
   z-index: 1;
@@ -20,5 +20,4 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  }
-
+  } */

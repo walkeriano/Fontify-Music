@@ -6,11 +6,12 @@
 .searchField input {
   background-color: rgba(0, 0, 0, 0.438);
   border: 2px solid yellow;
-  width: 250px;
+  width: 200px;
   height: 40px;
   border-radius: 40px;
   padding-left: 20px;
   color: yellow;
+  outline: none;
 }
 
 .searchField input::placeholder {

@@ -89,7 +89,7 @@ function FormLogin({adminUsers}) {
         <input type="email" className="email-input" id="email" placeholder="Correo electronico"/>
         
         <label htmlFor="password"></label>
-        <input type="password" className="password-input" id="password" placeholder="Contraseña" required/>
+        <input  type="password" className="password-input" id="password" placeholder="Contraseña" required/>
 
         <button type='submit' id="login-button">Login</button>
 

@@ -63,8 +63,8 @@ export default function Header({ sendData, sendIsDoingSearch, admin }) {
 
   return (
     <header className="mainHeader">
+      <img className="logo" src={logo} alt="logo" onClick={() => navigate('/home')}/>
       <div className="admin-header">
-        <img className="logo" src={logo} alt="logo" onClick={() => navigate('/home')}/>
         <SearchInput
           handleInputSearch={handleInputValue}
           handleSearch={handleSearch}
@@ -79,7 +79,6 @@ export default function Header({ sendData, sendIsDoingSearch, admin }) {
       ? (<button id="logout" onClick={handleLogout}>Logout</button>)
       : (<LoginBtn />)
       }
-
     </header>
   );
 }

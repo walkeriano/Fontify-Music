@@ -10,3 +10,14 @@
   font-size: 12px !important;
   color: black !important;
 }
+
+.results-search{
+  height: 150px;
+  border: 1px solid red;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color:white;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}

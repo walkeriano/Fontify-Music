@@ -4,16 +4,26 @@
   background: linear-gradient(black, rgba(0, 0, 0, 0));
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 2;
   position: fixed;
   top: 0px;
+  animation: 2s down ease-in-out;
+}
+
+@keyframes down {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0px;
+  }
 }
 
 .mainHeader .logo {
   margin: 30px 0px 0px 30px;
   width: 80%;
-  max-width: 250px;
+  max-width: 260px;
 }
 
 .searchField {
@@ -49,9 +59,10 @@
 }
 
 .admin-header{
+  width: 100%;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .i-admin{

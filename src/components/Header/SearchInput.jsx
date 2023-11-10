@@ -3,8 +3,6 @@ import './SearchInput.css';
 
 
 export default function SearchInput({handleInputSearch, handleSearch}){
-
-
   return (
     <div className="searchField">
       <input type="search" placeholder="Buscar" onChange={handleInputSearch} onKeyDown={handleSearch}/>
