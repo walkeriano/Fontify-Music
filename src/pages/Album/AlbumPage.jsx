@@ -15,6 +15,7 @@ export default function AlbumPage() {
   const [itemData, setItemData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [albumSongs, setAlbumSongs] = useState([]);
+  const [admin, setAdmin] = useState(true);
 
   function handleHeaderStates(state) {
     setIsDoingSearch(state);
@@ -49,6 +50,7 @@ export default function AlbumPage() {
       <Header
         sendData={handleHeaderData}
         sendIsDoingSearch={handleHeaderStates}
+        admin={admin}
       />
       {!isDoingSearch && !isLoading ? (
         <main className="cont-general">

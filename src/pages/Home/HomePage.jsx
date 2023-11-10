@@ -11,6 +11,7 @@ export default function HomePage() {
   const [isDoingSearch, setIsDoingSearch] = useState(false);
   const [homeData, setHomeData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(true);
 
   const homePath = "browse/new-releases?country=US&limit=30";
 
@@ -38,6 +39,7 @@ export default function HomePage() {
       <Header
         sendData={handleHeaderData}
         sendIsDoingSearch={handleHeaderStates}
+        admin={admin}
       />
       {!isDoingSearch && !isLoading ? (
         <main className="cont-general">
