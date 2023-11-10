@@ -1,5 +1,8 @@
 #root * {
   box-sizing: content-box;
+}
+
+#welcome-form *{
   font-family: Inter;
 }
 
