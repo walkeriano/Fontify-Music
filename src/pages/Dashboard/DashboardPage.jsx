@@ -48,9 +48,7 @@ export default function DashboardPage() {
     if (!isAlbumInHomeData) {
       const updatedHomeData = [...homeData, newAlbum];
       setHomeData(updatedHomeData);
-      console.log(updatedHomeData);
     }
-    console.log(newAlbum);
   }
 
   const navigate = useNavigate();
@@ -62,10 +60,8 @@ export default function DashboardPage() {
   function validateUser() {
     if (localStorage.getItem("user")) {
       setIsLogged(true);
-      console.log("Usuario logueado. DESDE VALIDATE USER");
     } else {
       setIsLogged(false);
-      console.log("Usuario NO logueado. DESDE VALIDATE USER");
       navigate("/");
     }
   }

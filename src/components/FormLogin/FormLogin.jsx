@@ -36,7 +36,6 @@ function FormLogin({adminUsers}) {
   function handleLogin(e){
 
     e.preventDefault();
-    console.log(e);
 
     const inputEmail = document.querySelector('#welcome-form #email');
     const inputPassword = document.querySelector('#welcome-form input[type="password"]');
@@ -66,10 +65,8 @@ function FormLogin({adminUsers}) {
 
     if(JSON.parse(localStorage.getItem('user'))){
       setIsLogged(true);
-      console.log('Usuario ADMIN logueado')
     } else{
       setIsLogged(false);
-      console.log('Usuario NO LOGUEADO');
     }
 
   }
