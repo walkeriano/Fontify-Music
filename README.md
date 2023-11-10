@@ -2,6 +2,8 @@
 
 Frontify es una plataforma para descubrir y disfrutar de álbumes de música en línea. Ofrece acceso sin necesidad de registro para usuarios y funciones de administrador para gestionar el contenido.
 
+[Demo en Vercel](https://p11-project6-group2.vercel.app/)
+
 ## Tabla de Contenidos
 1. [Introducción](#introducción)
 2. [Características](#características)
