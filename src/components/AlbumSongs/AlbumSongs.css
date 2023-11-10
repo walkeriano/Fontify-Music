@@ -1,0 +1,82 @@
+.cont-general-album{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.info-songs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    color:white;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(163, 163, 163);
+}
+
+.info-songs p{
+    font-size:0.9rem;
+    letter-spacing: 1px;
+    color: rgb(163, 163, 163);
+    margin-left: 40px;
+}
+
+.info-songs i{
+    font-size:1.1rem;
+    color: rgb(163, 163, 163);
+    margin-right: 20px;
+}
+
+.cont-album-songs{
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 20px;
+}
+
+.cont-album-songs li{
+    width: 80%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.cont-album-songs li:hover{
+    background-color:rgb(15, 15, 15);
+    border-radius: 50px;
+
+    .time-song{
+        color: white;
+    }
+
+}
+
+.cont-album-songs .name-song{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 20px;
+}
+
+.name-song i{
+    font-size:1.6rem;
+}
+
+.name-song p{
+    font-size:0.9rem;
+}
+
+.time-song{
+    color: rgb(163, 163, 163);
+    font-size: 0.9rem;
+}

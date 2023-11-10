@@ -1,45 +1,31 @@
-import "../AlbumSongs/AlbumSongs.css"
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ConstructorAPI from "../../../ConstructorAPI";
+import "../AlbumSongs/AlbumSongs.css";
 
-function AlbumSongs() {
-  const { id } = useParams();
-  const [itemData, setItemData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchItem = async () => {
-      const albumPath = "albums/" + id;
-      console.log(id);
-      const api = new ConstructorAPI(albumPath);
-
-      try {
-        const data = await api.fetchData();
-        setItemData(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching item data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchItem();
-  }, [id]);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+function AlbumSongs({ albumSongs }) {
+  const convertMsToMinSec = (milliseconds) => {
+    const totalSeconds = milliseconds / 1000;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }; 
 
   return (
-    <div className="hero">
-      <img src={itemData.images[0].url} className= "imageHero"/>
-      <h1>{itemData.name}</h1>
-      <p>{itemData.artists[0].name}</p>
-      <h2>Album Tracks</h2>
-      <p>{itemData.tracks.items[0].name}</p>
-    </div>
+    <section className="cont-general-album">
+      <div className="info-songs">
+        <p>Tracks</p>
+        <i className="fa-regular fa-clock"></i>
+      </div>
+      <ul className="cont-album-songs">
+        {albumSongs.map((item) => (
+          <li key={item.id}>
+            <div className="name-song">
+              <i className="fa-regular fa-circle-play"></i>
+              <p>{item.name}</p>
+            </div>
+            <p className="time-song" >{convertMsToMinSec(item.duration_ms)}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
