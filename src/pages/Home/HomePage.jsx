@@ -2,17 +2,16 @@ import "./HomePage.css";
 import Header from "../../components/Header/Header";
 import Catalog from "../../components/Catalog/Catalog";
 import Hero from "../../components/Hero/Hero";
-import Spinner from './../../components/Spinner/Spinner';
+import Spinner from "./../../components/Spinner/Spinner";
 import ConstructorAPI from "../../../ConstructorAPI";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  
   const [searchResults, setSearchResults] = useState([]);
   const [isDoingSearch, setIsDoingSearch] = useState(false);
-
   const [homeData, setHomeData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setUser] = useState(true);
 
   const homePath = "browse/new-releases?country=US&limit=30";
 
@@ -40,6 +39,7 @@ export default function HomePage() {
       <Header
         sendData={handleHeaderData}
         sendIsDoingSearch={handleHeaderStates}
+        admin={admin}
       />
       {!isDoingSearch && !isLoading ? (
         <main className="cont-general">
@@ -48,6 +48,7 @@ export default function HomePage() {
         </main>
       ) : isDoingSearch && !isLoading ? (
         <main className="cont-general">
+          <div className="results-search">Resultados de busqueda:</div>
           <Catalog fetchData={searchResults} />
         </main>
       ) : (

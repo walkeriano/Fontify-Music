@@ -3,13 +3,33 @@ import logo from "../../assets/img/logo-frontify.svg";
 
 import SearchInput from "./SearchInput";
 import ConstructorAPI from "../../../ConstructorAPI";
+import { Link } from "react-router-dom";
+import LoginBtn from "./LoginBtn";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { useState } from "react";
-
-export default function Header({ sendData, sendIsDoingSearch }) {
-
+export default function Header({ sendData, sendIsDoingSearch, admin }) {
   const [inputValue, setInputValue] = useState(null);
+  const [isLogged, setIsLogged] = useState(null);
   
+  const navigate = useNavigate();
+
+  useEffect( () => {
+    validateUser();
+  }, []);
+
+
+  function validateUser(){
+
+    if(JSON.parse(localStorage.getItem('user'))){
+      setIsLogged(true);
+    } else{
+      setIsLogged(false);
+    }
+
+  }
+
+
   function handleSearch(e) {
     if (e.key == "Enter") {
       search();
@@ -36,15 +56,20 @@ export default function Header({ sendData, sendIsDoingSearch }) {
       .catch((error) => console.log(error));
   }
 
-
   return (
     <header className="mainHeader">
-      <img className="logo" src={logo} alt="logo" />
-
-      <SearchInput
-        handleInputSearch={handleInputValue}
-        handleSearch={handleSearch}
-      />
+      <img className="logo" src={logo} alt="logo" onClick={() => navigate('/home')}/>
+      <div className="admin-header">
+        <SearchInput
+          handleInputSearch={handleInputValue}
+          handleSearch={handleSearch}
+        />
+        {admin && (
+          <Link to="/dashboard">
+            <i className="fa-solid fa-circle-user i-admin"></i>
+          </Link>
+        )}
+      </div>
     </header>
   );
 }

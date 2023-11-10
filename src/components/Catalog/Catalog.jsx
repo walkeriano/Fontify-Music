@@ -1,8 +1,8 @@
 import "./Catalog.css";
 import { useState, useEffect } from "react";
-import CatalogCard from './CatalogCard';
+import CatalogCard from "./CatalogCard";
 
-export default function Catalog({ fetchData }) {
+export default function Catalog({ fetchData, adminSearch, adminCatalog, addToHomeData }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,10 @@ export default function Catalog({ fetchData }) {
             albumType={item.type}
             numTracks={item.total_tracks}
             releaseDate={item.release_date}
-            />
+            adminSearch={adminSearch}
+            adminCatalog={adminCatalog}
+            addToHomeData={addToHomeData}
+          />
         ))}
       </div>
     </section>

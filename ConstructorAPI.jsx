@@ -35,8 +35,9 @@ class ConstructorAPI{
 
   async fetchData(){
     
-    // el parámetro path se usará más adelante cuando usemos la api de spotify
     this.getToken();
+
+    const token = this.localStorage.getItem('access_token');
 
     try{
       let options = {
@@ -45,7 +46,13 @@ class ConstructorAPI{
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + this.localStorage.getItem('access_token')
         }
-    }
+      }
+
+      if(token){
+        console.log("hay token cuando se hace el fetch");
+      } else{
+        console.log('no hay token');
+      }
 
       const request = await fetch(`${this.baseUrl}/${this.path}`, options);
 

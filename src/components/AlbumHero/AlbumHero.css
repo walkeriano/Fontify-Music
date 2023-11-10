@@ -1,14 +1,13 @@
 .imageHero {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    opacity: 30%;
-    object-fit: cover;
-    position: absolute;
-    top: 20px;
-  }
-
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 30%;
+  object-fit: cover;
+  position: absolute;
+  top: 20px;
+}
 

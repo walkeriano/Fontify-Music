@@ -31,3 +31,16 @@ body {
   font-size: 10px;
 }
 
+body::-webkit-scrollbar {
+  width: 5px; 
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;        
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: yellow;    
+  border-radius: 20px;       
+}
+
