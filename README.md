@@ -45,9 +45,9 @@ Asegúrate de configurar estas variables antes de iniciar la aplicación.
 
 ## Uso
 
-1. Configura las variables de entorno en un archivo `.env` en el directorio raíz del proyecto.
-2. Inicia la aplicación: `npm start`
-3. Accede a la página web desde tu navegador: `http://localhost:3000`
+1. Configura las variables de entorno en un archivo `.env.local` en el directorio raíz del proyecto.
+2. Inicia la aplicación: `npm run dev`
+3. Accede a la página web desde tu navegador: `http://localhost:5173`
 
 ### Modo Administrador
 
