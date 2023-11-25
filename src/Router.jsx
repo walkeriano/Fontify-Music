@@ -10,8 +10,8 @@ export function Router() {
 
     return (
         <Routes>
-            <Route path="/" element={<LoginPage/>} />
-            <Route path="/home" element={<HomePage/>} />
+            <Route path="/login" element={<LoginPage/>} />
+            <Route path="/" element={<HomePage/>} />
             <Route path="/album/:id" element={<AlbumPage/>} />
             <Route path='/dashboard' element={<DashboardPage/>} />
         </Routes>

@@ -65,7 +65,7 @@ export default function Header({ sendData, sendIsDoingSearch, admin }) {
           handleSearch={handleSearch}
         />
         {admin && (
-          <Link to="/dashboard">
+          <Link to="/login">
             <i className="fa-solid fa-circle-user i-admin"></i>
           </Link>
         )}
